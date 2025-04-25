@@ -2,13 +2,15 @@ from tortoise import Tortoise, fields, models
 
 
 class User(models.Model):
-    id = fields.BigIntField(primary_key=True)
+    id = fields.IntField(primary_key=True, auto_increment=True)
+    tg_id = fields.BigIntField()
     username = fields.CharField(max_length=256)
     
     class Meta():
         table = 'users'
 
 class Stat(models.Model):
+    id = fields.IntField(primary_key=True, auto_increment=True)
     ident = fields.BigIntField()
     stats = fields.IntField()
     

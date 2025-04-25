@@ -16,10 +16,10 @@ router = Router(name='main')
 async def command_start(message: Message):
     tg_id = message.from_user.id
     username = message.from_user.first_name
-    user_list = await User.all().values('id')
-    ids = [item['id'] for item in user_list] 
+    user_list = await User.all().values('tg_id')
+    ids = [item['tg_id'] for item in user_list] 
     if tg_id not in ids:
-        await User.create(id=tg_id, username=username)
+        await User.create(tg_id=tg_id, username=username)
     await message.answer(
         text='Привет, уважаемый пользователь!',
         parse_mode='HTML',

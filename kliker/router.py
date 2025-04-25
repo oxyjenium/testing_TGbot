@@ -95,6 +95,7 @@ async def register1(call: CallbackQuery, state: FSMContext):
         parse_mode="HTML",
         reply_markup=await keyboards.get_stats()
     )
+    await state.clear()
 
 
 @router.callback_query(

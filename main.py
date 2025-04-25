@@ -6,6 +6,7 @@ import asyncio
 
 from main.router import router as r1
 from kliker.router import router as r2
+from admin.router import router as r3
 
 from app.models import start_db
 
@@ -15,7 +16,7 @@ async def main():
     load_dotenv()
     bot = Bot(token=os.getenv('TOKEN'))
     await start_db()
-    dp.include_routers(r1,r2)
+    dp.include_routers(r1,r2,r3)
     await dp.start_polling(bot)
 
 
